@@ -15,7 +15,7 @@ jobs:
           cd website
           npm install -g @angular/cli
           npm ci
-          ng 
+          ng build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
