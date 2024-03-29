@@ -16,7 +16,6 @@ jobs:
         github_access_token: ${{ secrets.GITHUB_TOKEN }} 
         build_configuration: production
         angular_project_dir: ./website/
-        base_href: https://Oxford012.github.io/personal_website/
         angular_dist_build_folder: website/dist/website/browser # The folder where your project is supposed to be after running ng build by the action.
 
 permissions:
