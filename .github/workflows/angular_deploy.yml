@@ -1,7 +1,8 @@
 name: Build
 on:
-  push: 
-    on: main
+  pull_request:
+      branches: 
+      - main
   
 jobs:
   build:
