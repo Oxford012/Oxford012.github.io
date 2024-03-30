@@ -16,6 +16,11 @@ jobs:
           npm install -g @angular/cli
           npm ci
           ng build
+  
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+            name: github-pages
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
