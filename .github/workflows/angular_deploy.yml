@@ -1,6 +1,7 @@
-name: Build and Deploy
+name: Build
 on:
-  push:
+  push: 
+    on: main
   
 jobs:
   build:
