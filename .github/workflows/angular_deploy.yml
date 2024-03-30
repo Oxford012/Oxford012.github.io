@@ -1,14 +1,28 @@
 name: Build
 on:
-  pull_request:
-      branches: 
+  pull_request:  # Runs on pull request events
+  push:          # Runs on push events
+    branches:    # Only runs on pushes to the main branch
       - main
   
 jobs:
+  test:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js 12.8
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.8
+    - run: cd website    
+    - name: Install dependencies
+      run: npm install
+    - name: Test
+      run: npm test
+      
   build:
-
     runs-on: ubuntu-latest
-
+    if: github.event_name == 'push' && github.base_ref == 'main'
     steps:
     - uses: actions/checkout@v3
     - name: All things angular
@@ -23,3 +37,4 @@ jobs:
   
 permissions:
   contents: write # Allow write permission to GITHUB_TOKEN to commit to deploy branch.
+
